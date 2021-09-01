@@ -288,13 +288,7 @@ fieldset {
 }
 .aside {
   background-color: #8f8a8d;
-  /* width: 20%; */
-  /* position: fixed; */
   height: 100vh;
-  /* top: 0; */
-  /* left: 0; */
-  /* right: 0; */
-  /* z-index: -1; */
 }
 main {
   height: 100vh;
@@ -319,10 +313,8 @@ span {
 }
 .category {
   font-size: 1rem;
-  padding: 0rem 0.5rem;
-  border: 1px solid black;
-  color: red;
-  margin-left: 0.7rem;
+  padding: 0.4rem 0.5rem;
+  margin: 0.6rem 0.7rem;
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -340,9 +332,23 @@ h4 {
 .location {
   font-size: 0.6rem;
   padding: 0.6rem 0.5rem;
-  border: 1px solid black;
   color: red;
-  margin-left: 0.7rem;
+  margin: 0.6rem 0.7rem;
+}
+.input-1 {
+  margin: 0.6rem 0.3rem;
+  border: none;
+  background-color: #8f8a8d;
+  border-bottom: 1px solid white;
+  outline: 0;
+}
+.btn-form {
+  padding: 0.3rem 0.3rem;
+  color: white;
+}
+.form-1 {
+  margin-left: 3rem;
+  border: 1px solid white;
 }
 .img-section {
   margin-left: 21rem;

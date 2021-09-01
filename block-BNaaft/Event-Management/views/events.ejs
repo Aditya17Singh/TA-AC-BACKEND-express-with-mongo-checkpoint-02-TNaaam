@@ -26,33 +26,33 @@
       <aside class="aside flex-30">
         <div class="categories">
           <h4>category</h4>
-          <div>
+          <div class="flex justify">
             <% categories.forEach(category => { %>
-            <div>
-              <button>
+              <button class="btn category">
                 <a href="/events/category/<%= category %>">
                   <%= category %>
                 </a>
               </button>
-            </div>
             <% }) %>
           </div>
         </div>
         <h4>Location</h4>
-        <% location.forEach(locations => { %>
-        <div>
-          <button>
-            <a class="location" href="/events/location/<%= locations %>"> <%= locations %> </a>
-          </button>
+        <div class="flex justify">
+          <% location.forEach(locations => { %>
+            <div>
+              <button class="btn location">
+                <a class="location" href="/events/location/<%= locations %>"> <%= locations %> </a>
+              </button>
+            </div>
+            <% }) %>
         </div>
-        <% }) %>
-        <form class="form-control-1" action="/events/filter" method="POST">
+        <form class="form form-1" action="/events/filter" method="POST">
           <h3>
             Dates
           </h3>
-          <input type="Date" name="initialdate">
-          <input type="Date" name="finaldate">
-          <input type="submit"  value="sort by date">
+          <input class="input-1" type="Date" name="initialdate">
+          <input class="input-1" type="Date" name="finaldate">
+          <input class="btn btn-form" type="submit"  value="sort by date">
         </form>
       </aside>
       <main class="flex-68">
