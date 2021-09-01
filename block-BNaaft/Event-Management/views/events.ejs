@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container flex">
+        <a class="home" href="/"> Happily </a>
+        <span>
+          <button class="btn">
+            <a href="/events/new"> Add Events </a>
+          </button>
+        </span>
+      </div>
+    </header>
+    <div class="flex">
+      <aside class="aside flex-30">
+        <div class="categories">
+          <h4>category</h4>
+          <div>
+            <% categories.forEach(category => { %>
+            <div>
+              <button>
+                <a href="/events/category/<%= category %>">
+                  <%= category %>
+                </a>
+              </button>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+        <h4>Location</h4>
+        <% location.forEach(locations => { %>
+        <div>
+          <button>
+            <a class="location" href="/events/location/<%= locations %>"> <%= locations %> </a>
+          </button>
+        </div>
+        <% }) %>
+        <form class="form-control-1" action="/events/filter" method="POST">
+          <h3>
+            Dates
+          </h3>
+          <input type="Date" name="initialdate">
+          <input type="Date" name="finaldate">
+          <input type="submit"  value="sort by date">
+        </form>
+      </aside>
+      <main class="flex-68">
+        <section class="all-events flex flex-wrap justify">
+          <% events.forEach(a => { %>
+          <div class="img-section">
+            <img class="image" src="<%= a.image %>" alt="" />
+            <a href="/events/<%= a.id %>">
+              <h6 class="h6"><%= a.title %></h6>
+            </a>
+          </div>
+          <% }) %>
+        </section>
+      </div>
+    </main>
+    </div>
+   
+  </body>
+</html>
