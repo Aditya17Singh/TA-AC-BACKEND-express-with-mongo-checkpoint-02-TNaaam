@@ -64,17 +64,6 @@ router.get("/", (req, res, next) => {
   });
 });
 
-//fetch single event
-// router.get("/:id", (req, res, next) => {
-//   var id = req.params.id;
-//   Event.findById(id, (err, event) => {
-//     if (err) return next(err);
-//     comment.find({ bookId: id }, (err, comments) => {
-//       res.render("eventDetails", { event, comments });
-//     });
-//   });
-// });
-
 router.get("/:id", (req, res, next) => {
   var id = req.params.id;
   Event.findById(id, (err, event) => {
@@ -159,15 +148,16 @@ router.get("/category/:id", (req, res, next) => {
   });
 });
 
+//sort by locations
 router.get("/location/:id", (req, res, next) => {
   var id = req.params.id;
   Event.find({ location: { $in: [id] } }, (err, events) => {
     if (err) return next(err);
     Event.distinct("location", (err, location) => {
       if (err) return next(err);
-      Event.distinct("categories", (err, categories) => {
+      Event.distinct("category", (err, categories) => {
         if (err) return next(err);
-        res.render("events", { events, location, categories });
+        res.render("events", { events, categories, location });
       });
     });
   });
