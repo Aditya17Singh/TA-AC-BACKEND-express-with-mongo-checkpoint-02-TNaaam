@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="">
+      <div class="container flex">
+        <a class="home" href="/"> Happily </a>
+        <span>
+          <button class="btn">
+            <a href="/events/new"> Add Events </a>
+          </button>
+        </span>
+      </div>
+    </header>
+    <main>
+      <section>
+        <fieldset>
+          <form class="form" action="/events" method="POST">
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="Title"
+            />
+            <input
+              type="text"
+              name="summary"
+              class="form-control"
+              placeholder="Summary"
+            />
+            <input
+              type="text"
+              name="host"
+              class="form-control"
+              placeholder="Host"
+            />
+            <input type="date" name="start_date" class="form-control" />
+            <input type="date" name="end_date" class="form-control" />
+            <input
+              type="text"
+              name="category"
+              class="form-control"
+              placeholder="Category"
+            />
+            <input
+              type="text"
+              name="location"
+              class="form-control"
+              placeholder="Location"
+            />
+            <input type="text" name="image" placeholder="image-url" />
+            <input type="submit" />
+          </form>
+        </fieldset>
+      </section>
+    </main>
+  </body>
+</html>

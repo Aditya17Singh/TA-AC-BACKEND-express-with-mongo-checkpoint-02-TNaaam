@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="">
+      <div class="container flex">
+        <a class="home" href="/"> Happily </a>
+        <span>
+          <button class="btn">
+            <a href="/events/new"> Add Events </a>
+          </button>
+        </span>
+      </div>
+    </header>
+    <main>
+      <section>
+        <fieldset>
+          <form class="form" action="/events/<%= event.id %>" method="POST">
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="Title"
+              value="<%= event.title %>"
+            />
+            <input
+              type="text"
+              name="summary"
+              class="form-control"
+              placeholder="Summary"
+              value="<%= event.summary %>"
+            />
+            <input
+              type="text"
+              name="host"
+              class="form-control"
+              placeholder="Host"
+              value="<%= event.host %>"
+            />
+            <input
+              type="date"
+              name="start_date"
+              class="form-control"
+              value="<%= event.start_date %>"
+            />
+            <input
+              type="date"
+              name="end_date"
+              class="form-control"
+              value="<%= event.end_date %>"
+            />
+            <input
+              type="text"
+              name="category"
+              class="form-control"
+              placeholder="Category"
+              value="<%= event.category %> "
+            />
+            <input
+              type="text"
+              name="location"
+              class="form-control"
+              placeholder="Location"
+              value="<%= event.location %>"
+            />
+            <!-- <input type="text" name="image" placeholder="image-url" /> -->
+            <input type="submit" value="save-changes" />
+          </form>
+        </fieldset>
+      </section>
+    </main>
+  </body>
+</html>
