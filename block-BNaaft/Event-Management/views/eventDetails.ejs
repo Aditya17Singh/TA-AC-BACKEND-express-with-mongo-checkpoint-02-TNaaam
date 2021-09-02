@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/508c3a88fa.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container flex">
+        <a class="home" href="/"> Happily </a>
+        <span>
+          <button class="btn">
+            <a href="/events/new"> Add Events </a>
+          </button>
+        </span>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="container parag">
+          <img class="image-detail" src="<%= event.image %> " alt="" />
+          <div class="flex justify head">
+            <h5 class="title"><%= event.title %></h5>
+            <span class="like">
+              <a class="likes" href="/events/<%= event.id %>/like">
+                <i class="fas fa-heart"></i>
+              </a>
+              <span class="span"><%= event.like ? event.like : 0 %></span>
+            </span>
+          </div>
+          <p class="paragraph"><%= event.summary %></p>
+          <div class="host">
+            <span class="">Host - </span>
+            <span class=""><%= event.host %></span>
+          </div>
+          <ul class="flex start-date">
+            <li class="flex-43">
+              <span>Start Date - </span>
+              <span class="end-date"> <%= startDate %> </span>
+            </li>
+            <li class="flex-43">
+              <span>End Date - </span>
+              <span class="end-date"> <%= endDate %> </span>
+            </li>
+          </ul>
+          <div class="text-center">
+            <div class="category1">
+              <span>Category - </span>
+              <span>
+                <% event.category.forEach(categories => { %> <%= categories %>
+                <% }) %>
+              </span>
+            </div>
+            <li class="location-bar">
+              <a href="">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+              <span> <%= event.location %> </span>
+            </li>
+            <div>
+              <a class="edit" href="/events/<%= event.id %>/edit">
+                <button class="">Edit</button>
+              </a>
+              <a class="delete" href="/events/<%= event.id %>/delete">
+                <button class="">Delete</button>
+              </a>
+            </div>
+            <form action="/events/<%= event.id %>/comments" method="POST">
+              <textarea name="content" id="" cols="80" rows="3"></textarea>
+              <input type="submit" class="text-input" value="Add comments" />
+            </form>
+            <% event.comments.forEach(comment => { %>
+            <h6 class="author"><%= comment.content %></h6>
+            <div>
+              <a class="edit" href="/comment/<%= comment.id %>/edit">
+                <button>Edit</button>
+              </a>
+              <a class="delete" href="/comment/<%= comment.id %>/delete">
+                <button>Delete</button>
+              </a>
+              <span class="like">
+                <a class="likes" href="/comment/<%= comment.id %>/like">
+                  <i class="fas fa-heart"></i>
+                </a>
+                <span class="span"><%= comment.like ? comment.like : 0 %></span>
+              </span>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
