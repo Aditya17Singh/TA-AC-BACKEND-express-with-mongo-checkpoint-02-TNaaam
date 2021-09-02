@@ -33,4 +33,12 @@ router.get("/:id/delete", (req, res, next) => {
     );
   });
 });
+
+router.get("/:id/like", (req, res, next) => {
+  var id = req.params.id;
+  Comment.findByIdAndUpdate(id, { $inc: { like: 1 } }, (err, comment) => {
+    if (err) return next(err);
+    res.redirect("/events/" + comment.bookId);
+  });
+});
 module.exports = router;
