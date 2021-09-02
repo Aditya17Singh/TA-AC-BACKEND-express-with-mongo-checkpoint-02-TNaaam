@@ -26,7 +26,6 @@ router.post("/filter/", (req, res, next) => {
       { start_date: { $gte: req.body.initialdate, $lt: req.body.finaldate } },
       (err, events) => {
         if (err) return next(err);
-        console.log(events);
         res.render("events", { events, categories, location });
       }
     );
@@ -121,7 +120,7 @@ router.post("/:id/comments", (req, res, next) => {
   Comment.create(req.body, (err, comment) => {
     if (err) return next(err);
     console.log(comment);
-    //update book with comment id into comment sections
+    //update event with comment id into comment sections
     Event.findByIdAndUpdate(
       id,
       { $push: { comments: comment.id } },

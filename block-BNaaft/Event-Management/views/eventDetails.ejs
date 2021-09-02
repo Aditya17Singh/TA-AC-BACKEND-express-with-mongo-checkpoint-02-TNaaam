@@ -85,6 +85,12 @@
               <a class="delete" href="/comment/<%= comment.id %>/delete">
                 <button>Delete</button>
               </a>
+              <span class="like">
+                <a class="likes" href="/comment/<%= comment.id %>/like">
+                  <i class="fas fa-heart"></i>
+                </a>
+                <span class="span"><%= comment.like ? comment.like : 0 %></span>
+              </span>
             </div>
             <% }) %>
           </div>
